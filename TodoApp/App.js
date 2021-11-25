@@ -13,7 +13,7 @@ import Register from "./screens/Register";
 
 async function checkAuth(setIsLoggedIn) {
     const user = await getStore('user');
-    if(user.email !== undefined){
+    if(user !== undefined && user !== null && typeof(user) === 'object' && user.email !== null){
         setIsLoggedIn(true);
     }else{
         setIsLoggedIn(false);
@@ -25,7 +25,11 @@ export default function App() {
     const [isloginScreen, setLoginScreen] = useState(true);
 
     useEffect(() => {
-        checkAuth(setIsLoggedIn);
+        async function auth() {
+            checkAuth(setIsLoggedIn);
+        }
+        auth()
+       
     },[setIsLoggedIn])
 
     const handleLogout = () => {
@@ -50,7 +54,3 @@ const styles = StyleSheet.create({
         backgroundColor: "#fff",
     },
 });
-
-
-//axios
-//npm install @react-native-async-storage/async-storage

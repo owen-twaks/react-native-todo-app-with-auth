@@ -27,7 +27,6 @@ export async function setStore(storeKey, value) {
     }
 }
 
-//localStorage.setItem('name', name);
 
 export async function getStore(storeKey) {
 

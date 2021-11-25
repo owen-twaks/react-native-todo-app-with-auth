@@ -1,6 +1,7 @@
 import axios from 'axios';
 
-const url = 'http://192.168.11.62:80/php_server/api/';
+const deviceIpAddress = ""
+const url = `http://${deviceIpAddress}:80/php_server/api/`;
 
 //---------------------------------------[ Task related endpoints]---------------------------------------
 export async function getTasks() {
